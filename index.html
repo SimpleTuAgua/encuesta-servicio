@@ -138,9 +138,10 @@ const AVISO_PRIVACIDAD_URL = ""; // liga al aviso de privacidad de Simple (pendi
 const VERSION = "v2-2026-11-09";
 
 const params = new URLSearchParams(location.search);
-const cliente = (params.get("cliente") || "").trim();
-const hs = (params.get("hs") || "").trim(); // Record ID del contacto en HubSpot (opcional)
-const nombre = (params.get("n") || "").trim().split(" ")[0];
+const cParts = (params.get("c") || "").split(".");
+const cliente = (cParts[0] || params.get("cliente") || "").trim();
+const hs = (cParts[1] || params.get("hs") || "").trim();
+const nombre = (cParts.slice(2).join(".") || params.get("n") || "").trim().split(" ")[0];
 
 const Q = [
   {id:"nps", type:"scale", min:0, max:10, eyebrow:"Recomendación",

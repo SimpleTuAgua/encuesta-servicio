@@ -141,8 +141,8 @@ const params = new URLSearchParams(location.search);
 const cParts = (params.get("c") || "").split(".");
 const cliente = (cParts[0] || params.get("cliente") || "").trim();
 const hs = (cParts[1] || params.get("hs") || "").trim();
-const nombre = (cParts.slice(2).join(".") || params.get("n") || "").trim().split(" ")[0];
-
+   const nombre = (cParts.slice(2).join(".") || params.get("n") || "").trim();
+  
 const Q = [
   {id:"nps", type:"scale", min:0, max:10, eyebrow:"Recomendación",
    title:"¿Qué tan probable es que recomiendes SIMPLE a un familiar o amigo?",
